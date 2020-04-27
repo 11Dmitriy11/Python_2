@@ -20,6 +20,7 @@ def Inferring_Peptide_from_Full_Spectrum(lens):
 			for k, v in mass.items():
 				if  round(m,2) == round(v,2):
 					ans.append(k)
+					break
 			i += 1
 			m = 0
 		else:

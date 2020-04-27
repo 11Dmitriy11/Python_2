@@ -14,6 +14,7 @@ def inferring_protein_from_spectrum(lens):
     		for k,v in mass.items():
         		if round(i,2)  == round(v,2):
             			ans.append(k)
+				break
 	return(''.join(ans))
 
 def main(args):
