@@ -1,0 +1,25 @@
+rule all:
+        input: list(map(lambda x: str('output/')+str(x), glob_wildcards("input/{file, [^\.].*}").file))
+        output: touch(".status")
+
+rule parser:
+        input:
+             "input/{files}"
+        output:
+             "output/{files}"
+        run:
+                with open(str(input), "r") as ino:
+                   D = {}
+                   stroka = ino.read().replace('\n', '')
+                   for i in stroka:
+                      D[i] = stroka.count(i)
+                   with open("output/{}".format(str(input)[6:]), "w") as ino:
+                      list_keys = list(D.keys())
+                      list_keys.sort()
+                      for i in list_keys:
+                          ino.write('{}: {}\n'.format(i, D[i]))
+
+
+
+
+

@@ -1,0 +1,15 @@
+rule all:
+        input: list(map(lambda x: str('output/')+str(x), glob_wildcards("input/{file, [^\.].*}").file))
+        output: touch(".status")
+
+rule parser:
+        input:
+             "input/{files}"
+        output:
+             "output/{files}"
+        shell:
+             "echo 'Hello' $(cat{input})'!' > {output}"
+
+
+
+
