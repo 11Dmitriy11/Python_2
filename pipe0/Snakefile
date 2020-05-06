@@ -1,0 +1,11 @@
+rule all:
+        input: "output/output"
+        output: touch(".status")
+rule parser:
+        input: "input/input"
+        output: "output/output"
+        shell: "wc -w {input} | cut -f1 -d ' ' > {output}"
+
+
+
+

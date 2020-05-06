@@ -1,0 +1,29 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	parser
+	2
+
+[Wed May  6 11:58:38 2020]
+rule parser:
+    input: input/input
+    output: output/output
+    jobid: 1
+
+[Wed May  6 11:58:38 2020]
+Finished job 1.
+1 of 2 steps (50%) done
+
+[Wed May  6 11:58:38 2020]
+localrule all:
+    input: output/output
+    jobid: 0
+
+[Wed May  6 11:58:38 2020]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: /home/dmitrii/Projects/python_2/pipe0/.snakemake/log/2020-05-06T115838.672108.snakemake.log
